@@ -6,12 +6,24 @@ use App\Models\stu_class;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
+use Illuminate\Support\Facades\DB;
+
 class Studentcontroller extends Controller
 {
-    public function index(){
-        $student = Student::latest()->get();
-        $class = stu_class::latest()->get();
-        return view('admin.student.get_student',compact('student', 'class'));
+    public function index(Request $request){
+
+        $search = $request->search;
+
+    $students = DB::table('students')
+    ->join('stu_classes', 'students.class_id', '=', 'stu_classes.id')
+    ->select('students.*', 'stu_classes.class_name')
+    ->when($search, function ($query) use ($search) {
+        $query->where('stu_classes.class_name', 'like', '%' . $search . '%')
+            ->orWhere('students.name', 'like', '%' . $search . '%');
+    })
+    ->paginate(5);
+
+        return view('admin.student.get_student',compact('students','search'));
     }
 
     public function AddStudent(){
@@ -23,6 +35,15 @@ class Studentcontroller extends Controller
     } 
 
     public function StoreStudent(Request $request){
+
+        $request->validate([
+
+            'name' => 'required',
+            'class_id' => 'required',
+            'gender' => 'required',
+            'status' => 'required',
+           
+        ]);
 
         $student = new Student();
         $student->name = $request->name;

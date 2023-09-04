@@ -3,6 +3,7 @@
 @section('admin')
 
 
+
 @if (session('success'))
 
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -12,7 +13,28 @@
 
 @endif
 
+
+
 <div class="page-content">
+
+
+
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 col-sm-12 col-lg-4 col-xl-4 ">
+                <form class="d-flex mb-2" role="search" action="{{ route('get.teacher') }}">
+                    <input class="form-control me-2 border-2 border-secondary" name="search" type="search"
+                        placeholder="Search" aria-label="Search" value="{{ $search }}">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+
+                </form>
+                <span class="text-light  mt-1 mb-3">Search By "Name / Phone Number"</span>  
+            </div>
+
+            
+        </div>
+    </div>
     
     
     <div class="card-body">
@@ -68,7 +90,7 @@
         </div>
     </div>
 
-    
+    {{ $teacher->links()  }}
               
         </div>
 @endsection

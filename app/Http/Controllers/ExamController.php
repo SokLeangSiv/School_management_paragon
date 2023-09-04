@@ -6,16 +6,30 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\stu_class;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
 
-    public function index (){
+    public function index (Request $request){
 
-       
-        $exam = Exam::latest()->get();
+        //search exam
+        $search = $request->search;
 
-        return view('admin.exam.get_exam',compact('exam'));
+        $examinate = DB::table('exams')
+                    ->join('stu_classes', 'exams.class_id', '=', 'stu_classes.id')
+                    ->join('teachers', 'exams.teacher_id', '=', 'teachers.id')
+                    ->select('exams.*', 'stu_classes.class_name','stu_classes.class_code','teachers.teacher')
+                    ->when($search, function($query) use ($search){
+
+                        $query->where('stu_classes.class_name', 'like', '%' . $search . '%')
+                        ->orWhere('teachers.teacher', 'like', '%' . $search . '%');
+
+                    })
+                    ->paginate(5);
+
+
+        return view('admin.exam.get_exam',compact('examinate','search'));
     }
 
     public function AddExam(){
@@ -29,9 +43,21 @@ class ExamController extends Controller
 
     public function StoreExam(Request $request)
     {
-        $class = $request->class_id;
-        
 
+        $request->validate([
+            'class_id' => 'required',
+            'teacher_id' => 'required',
+            'day' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'group' => 'required',
+            'exam_type' => 'required',
+            'room' => 'required',
+        ]);
+
+
+        $class = $request->class_id;
+    
         $exam = new Exam();
         $exam->class_id = $class;
         $exam->teacher_id = $request->teacher_id;

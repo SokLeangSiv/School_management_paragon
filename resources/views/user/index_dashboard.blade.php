@@ -2,7 +2,7 @@
 
 @section('user')
     @php
-        $class = App\Models\stu_class::latest()->get();
+        $class = App\Models\stu_class::where('status', 'Active')->get();
         
     @endphp
     <div class="container-fluid">

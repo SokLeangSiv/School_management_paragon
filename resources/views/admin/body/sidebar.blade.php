@@ -1,7 +1,9 @@
 <nav class="sidebar">
     <div class="sidebar-header">
       <a href="#" class="sidebar-brand">
-        Noble<span>UI</span>
+        <div class="h1 d-inline-block text-warning-emphasis  ps-2 pb-0">Oro<div
+            class="span d-inline-block text-info">gon</div>
+    </div>
       </a>
       <div class="sidebar-toggler not-active">
         <span></span>
@@ -42,7 +44,7 @@
 
         <li class="nav-item">
           <a href="{{ route('get.teacher') }}" class="nav-link">
-            <i class="fa-solid fa-calendar-days"></i>
+            <i class="fa-solid fa-person-chalkboard"></i>
             <span class="link-title">Teahcer</span>
           </a>
         </li>

@@ -8,11 +8,17 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 class ClassController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $class = stu_class::latest()->get();
+        $search = $request->search;
 
-        return view('admin.class.GetClass',compact('class'));
+        $class = stu_class::when($search, function ($query) use ($search){
+            $query->where('class_name','like','%' . $search . '%')
+                  ->orWhere('class_code', 'like', '%' . $search . '%')
+                  ->orWhere('teacher', 'like', '%' . $search . '%');
+        })->paginate(5);
+
+        return view('admin.class.GetClass',compact('class','search'));
 
     }
 
@@ -24,6 +30,17 @@ class ClassController extends Controller
     }
 
     public function StoreClass(Request $request){
+
+        $request->validate([
+            'class_name' => 'required',
+            'class_code' => 'required|unique:stu_classes,class_code',
+            'teacher' => 'required',
+            'start_at' => 'required',
+            'end_at' => 'required',
+            'day' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+        ]);
 
         $class = new stu_class();
         $class->class_name = Str::ucfirst($request->class_name);

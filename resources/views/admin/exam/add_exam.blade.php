@@ -13,11 +13,6 @@
                     <form class="forms-sample" method="post" action="{{ route('store.exam')}}">
                         @csrf
 
-                        {{-- <div class="mb-3">
-                            <label for="exampleInputUsername1" class="form-label">Course Name</label>
-                            <input type="text" class="form-control" name="exam_name" id="exampleInputUsername1"
-                                autocomplete="off" placeholder="Course Name">
-                        </div> --}}
 
                         <div class="mb-3">
                             <label for="ageSelect" class="form-label">Course Name</label>
@@ -27,11 +22,18 @@
                                
                                 @foreach ($class as $item)
                                     
-                                <option value="{{ $item->id }}">{{ $item->class_name }}</option>
+                                <option value="{{ $item->id }}" {{ old('class_id') == $item->id ? 'selected' : '' }}>{{ $item->class_name }}</option>
                                 
                                 @endforeach
 
                             </select>
+
+                            @if ($errors->has('class_id'))
+                                
+                                <span class="text-danger">{{ $errors->first('class_id') }}</span>
+                                
+                            @endif
+
                         </div>
 
                        
@@ -44,11 +46,17 @@
                                
                                 @foreach ($teacher as $item)
                                     
-                                <option value="{{ $item->id }}">{{ $item->teacher }}</option>
+                                <option value="{{ $item->id }}" {{ old('teacher_id') == $item->id ? 'selected' : '' }}>{{ $item->teacher }}</option>
                                 
                                 @endforeach
 
                             </select>
+
+                            @if ($errors->has('teacher_id'))
+                                
+                                <span class="text-danger">{{ $errors->first('teacher_id') }}</span>
+                                
+                            @endif
                         </div>
 
                         <div class="mb-3">
@@ -58,29 +66,47 @@
 
                                
                                     
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
+                                <option value="Monday" {{ old('day') == 'Monday' ? 'selected' : '' }}>Monday</option>
+                                <option value="Tuesday" {{ old('day') == 'Tuesday' ? 'selected' : '' }}>Tuesday</option>
+                                <option value="Wednesday" {{ old('day') == 'Wednesday' ? 'selected' : '' }}>Wednesday</option>
+                                <option value="Thursday" {{ old('day') == 'Thursday' ? 'selected' : '' }}>Thursday</option>
+                                <option value="Friday" {{ old('day') == 'Friday' ? 'selected' : '' }}>Friday</option>
+                                <option value="Saturday" {{ old('day') == 'Saturday' ? 'selected' : '' }}>Saturday</option>
+                                <option value="Sunday" {{ old('day') == 'Sunday' ? 'selected' : '' }}>Sunday</option>
                                 
 
                             </select>
+
+                            @if ($errors->has('day'))
+                                
+                                <span class="text-danger">{{ $errors->first('day') }}</span>
+                                
+                            @endif
                         </div>
 
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Date</label>
                             <input type="date" class="form-control" name="date" id="exampleInputUsername1"
-                                autocomplete="off" placeholder="Date">
+                                autocomplete="off" placeholder="Date" value="{{ old('date') }}">
+
+                                @if ($errors->has('date'))
+                                    
+                                    <span class="text-danger">{{ $errors->first('date') }}</span>
+                                    
+                                @endif
                         </div>
 
                         <div class="mb-3">
                             
                             <label for="exampleInputUsername1" class="form-label">Time</label>
                             <input type="time" class="form-control" name="time" id="exampleInputUsername1"
-                                autocomplete="off" placeholder="Time">
+                                autocomplete="off" placeholder="Time" value="{{ old('time') }}">
+
+                                @if ($errors->has('time'))
+                                    
+                                    <span class="text-danger">{{ $errors->first('time') }}</span>
+                                    
+                                @endif
                         </div>
 
                         
@@ -91,13 +117,19 @@
 
                                
                                     
-                                <option value="Freshman">Freshman</option>
-                                <option value="Sophomore">Sophomore</option>
-                                <option value="Junior">Junior</option>
-                                <option value="Senior">Senior</option>
+                                <option value="Freshman" {{ old('group') == 'Freshman'? 'selected' : '' }}>Freshman</option>
+                                <option value="Sophomore" {{ old('group') == 'Sophomore'? 'selected' : '' }}>Sophomore</option>
+                                <option value="Junior" {{ old('group') == 'Junior' ? 'selected' : ''}}>Junior</option>
+                                <option value="Senior" {{ old('group') == 'Senior' ? 'selected' : ''}}>Senior</option>
                                 
 
                             </select>
+
+                            @if ($errors->has('group'))
+                                
+                                <span class="text-danger">{{ $errors->first('group') }}</span>
+                                
+                            @endif
                         </div>
 
                         <div class="mb-3">
@@ -105,10 +137,16 @@
                             <select class="form-select" name="exam_type" id="ageSelect">
                                 <option selected="" disabled="">Select Exam Type</option>
 
-                                <option value="midterm">Midterm</option>
-                                <option value="final">Final</option>
+                                <option value="midterm" {{ old('exam_type') == 'midterm'  ? 'selected' : ''}}>Midterm</option>
+                                <option value="final" {{ old('exam_type') == 'final' ? 'selected' : '' }}>Final</option>
 
                             </select>
+
+                            @if ($errors->has('exam_type'))
+                                
+                                <span class="text-danger">{{ $errors->first('exam_type') }}</span>
+                                
+                            @endif
                         </div>
 
 
@@ -117,6 +155,12 @@
                             <label for="exampleInputUsername1" class="form-label">Room</label>
                             <input type="text" class="form-control" name="room" id="exampleInputUsername1"
                                 autocomplete="off" placeholder="room">
+
+                                @if ($errors->has('room'))
+                                    
+                                    <span class="text-danger">{{ $errors->first('room') }}</span>
+                                    
+                                @endif
                         </div>
 
 

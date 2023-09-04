@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 use App\Models\Teacher;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class TeacherController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $teacher = Teacher::latest()->get();
+        $search = $request->search;
 
-        return view('admin.teacher.get_teacher',compact('teacher'));
+        $teacher = Teacher::when($search, function ($query) use ($search){
+            $query->where('teacher','like','%' . $search . '%')
+                  ->orWhere('phone', 'like', '%' . $search . '%');
+        })->paginate(5);
+
+
+        return view('admin.teacher.get_teacher',compact('teacher','search'));
     }
 
     public function AddTeacher(){
@@ -20,6 +27,16 @@ class TeacherController extends Controller
     }
 
     public function StoreTeacher(Request $request){
+
+        $request->validate([
+
+            'teacher' => 'required',
+            'gender' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            
+        ]);
 
         $teacher = new Teacher();
         $teacher->teacher = Str::ucfirst($request->teacher);

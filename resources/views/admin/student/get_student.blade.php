@@ -12,7 +12,27 @@
 
 @endif
 
+
+
+
 <div class="page-content">
+
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 col-sm-12 col-lg-4 col-xl-4 ">
+                <form class="d-flex mb-2" role="search" action="{{ route('get.student') }}">
+                    <input class="form-control me-2 border-2 border-secondary" name="search" type="search"
+                        placeholder="Search" aria-label="Search" value="{{ $search }}">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+
+                </form>
+                <span class="text-light ms-3 mt-1">Search By "Name / Class Name"</span>  
+            </div>
+
+            
+        </div>
+    </div>
     
     
     <div class="card-body">
@@ -27,6 +47,7 @@
                     <tr>
                         <th>#</th>
                         <th>Student Name</th>
+                        <th>Class Name</th>
                         <th>Gender</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -34,22 +55,39 @@
                 </thead>
                 <tbody>
 
-                     @foreach ($student as $key =>$item )
+                     @foreach ($students as $key =>$item )
                          
                    
                     <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->name }}</td>
+                        <td>{{ $item->class_name }}</td>
                         <td>{{ $item->gender }}</td>
-                        <td>{{ $item->status }}</td>
+                        <td>
+
+                            @if ($item->status == "Active")
+                            <span class="badge bg-success text-white">{{ $item->status }}</span>
+
+                            @else
+
+                            <span class="badge bg-danger text-white">{{ $item->status }}</span>
+                            
+                            @endif
+
+
+                        </td>
                         
                         <td>
+                           
+                            @if ($item->id)
                             <a href="{{ route('edit.student', $item->id) }}">
                                 <button type="button" class="btn btn-warning me-2"><i class="fa-solid fa-pen-to-square"></i></button>
                             </a>
                             <a href="{{ route('delete.student', $item->id) }}">
                                 <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash fs-5"></i></button>
                             </a>
+                        @endif
+                        </td>
                         
                     </tr>
                     @endforeach 
@@ -60,7 +98,8 @@
         </div>
     </div>
 
-    
-              
-        </div>
+    {{ $students->links()  }}   
+
+</div>
+
 @endsection

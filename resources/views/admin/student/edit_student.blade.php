@@ -13,6 +13,8 @@
                     <form class="forms-sample" method="post" action="{{ route('update.student',$student->id) }}">
                         @csrf
 
+                      
+                       
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Student Name</label>
                             <input type="text" class="form-control" name="name" id="exampleInputUsername1"
