@@ -25,7 +25,7 @@
                         <button class="btn btn-outline-primary" type="submit">Search</button>
 
                     </form>
-                    <span class="text-light mt-5">Search By "Name / Class Name"</span>
+                    <span class="text-light mt-5">Search By "Teacher Name / Class Name"</span>
                 </div>
 
                 

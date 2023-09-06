@@ -2,8 +2,8 @@
 
 @section('admin')
 
+    
  
-
 
     <div class="page-content">
 
@@ -50,7 +50,7 @@
 
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">Start At</label>
-                            <input type="time" class="form-control" name="start_at" id="exampleInputUsername1"
+                            <input type="time" class="form-control" name="start_at" id="start_at"
                                 autocomplete="off" placeholder="Start At" value="{{  old('start_at') }}">
 
                                 @if ($errors->has('start_at'))
@@ -61,7 +61,7 @@
 
                         <div class="mb-3">
                             <label for="exampleInputUsername1" class="form-label">End At</label>
-                            <input type="time" class="form-control" name="end_at" id="exampleInputUsername1"
+                            <input type="time" class="form-control" name="end_at" id="end_at"
                                 autocomplete="off" placeholder="End At" value="{{  old('end_at') }}">
 
                                 @if ($errors->has('end_at'))
@@ -69,6 +69,8 @@
                                     
                                 @endif
                         </div>
+
+                     
                         
                         <div class="mb-3">
                             <label for="ageSelect" class="form-label">Day</label>

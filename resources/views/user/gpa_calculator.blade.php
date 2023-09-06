@@ -58,10 +58,10 @@
     </div>
   </div>
  
-  <div class="container-fluid fixed-bottom">
+  <div class="container-fluid bottom">
     <footer>
       <hr>
-      <span class="d-flex justify-content-center text-center mb-2">
+      <span class="d-flex justify-content-center text-center ">
         All rights reserved. Copyright © 2023 Oaragon International University Phnom Penh - Cambodia
       </span>          
     </footer>

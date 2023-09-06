@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -39,15 +40,11 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
       
-      
-        
-
-
           $user = new User();
           $user->name = $request->name;
           $user->email = $request->email;
           $user->password = Hash::make($request->password);
-
+          $user->address = $request->address;  
 
           if ($request->file('photo')) {
             $file = $request->file('photo');
@@ -62,14 +59,8 @@ class RegisteredUserController extends Controller
 
           $user->save();
 
-          
-        //   $user = User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'password' => Hash::make($request->password),
-        //     // 'photo' => $filename,
-        //     'phone' => $request->phone,
-        //   ]);
+  
+       
 
         event(new Registered($user));
 

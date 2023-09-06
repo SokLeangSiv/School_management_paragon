@@ -12,6 +12,7 @@
         <form method="POST" action="{{ route('store.user.profile') }}" enctype="multipart/form-data">
 
             @csrf
+            
         <div class=" offset-4 col-4">
             <label for="" class="form-label">Name : </label>
             <input type="text" name="name" class="form-control border-5" placeholder="Name" value="{{ $profileData->name }}">

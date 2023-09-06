@@ -51,11 +51,18 @@
                                
                                 @foreach ($teacher as $item)
                                     
-                                <option value="{{ $item->id }}" {{ $item->id == $exam->class_id ? 'selected' : '' }}>{{ $item->teacher }}</option>
+                                <option value="{{ $item->id }}" {{ $item->id == $exam->teacher_id ? 'selected' : '' }}>{{ $item->teacher }}</option>
                                 
                                 @endforeach
 
+                                @if ($errors->has('teacher'))
+                                        <span class="text-danger">{{ $errors->first('teacher_id') }}</span>
+                                        
+                                  
+                                    
+                                @endif
                             </select>
+
                         </div>
 
                         <div class="mb-3">

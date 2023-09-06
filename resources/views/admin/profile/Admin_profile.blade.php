@@ -39,7 +39,7 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">address</label>
-                        <input type="email" name="address" class="form-control" id="exampleInputEmail1"
+                        <input type="text" name="address" class="form-control" id="exampleInputEmail1"
                             placeholder="Address" value="{{ $profileData->address }}">
                     </div>
 

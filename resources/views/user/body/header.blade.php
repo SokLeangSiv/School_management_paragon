@@ -19,7 +19,7 @@ $data = App\Models\User::find($id);
         {{-- end sidebar --}}
         
 
-        <a class="navbar-brand text-warning-emphasis fs-2 fw-bolder" href="#">Ora<span
+        <a class="navbar-brand text-warning-emphasis fs-2 fw-bolder" href="{{ route('get.dashboard') }}">Ora<span
                 class="text-info">Gon</span></a>
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"

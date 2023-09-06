@@ -1,10 +1,12 @@
 <x-guest-layout>
     <x-auth-card>
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link rel="icon" href="{{ asset('upload/logo.png') }}">
         <x-slot name="logo">
-            <a href="/">
+            {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </a> --}}
         </x-slot>
 
         <!-- Session Status -->
@@ -14,7 +16,12 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('login') }}">
-            @csrf
+            {{-- . Cross-Site Request Forgery (CSRF) --}}
+            
+            @csrf   
+
+            <a class="navbar-brand text-warning-emphasis fs-1 fw-bolder d-flex justify-content-center pb-3" href="#">Ora<span
+                class="text-info">Gon</span></a>
 
             <!-- Email Address -->
             <div>

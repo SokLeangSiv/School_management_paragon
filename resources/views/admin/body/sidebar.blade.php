@@ -1,6 +1,6 @@
 <nav class="sidebar">
     <div class="sidebar-header">
-      <a href="#" class="sidebar-brand">
+      <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
         <div class="h1 d-inline-block text-warning-emphasis  ps-2 pb-0">Oro<div
             class="span d-inline-block text-info">gon</div>
     </div>

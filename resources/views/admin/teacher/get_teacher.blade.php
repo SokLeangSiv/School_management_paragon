@@ -29,7 +29,7 @@
                     <button class="btn btn-outline-primary" type="submit">Search</button>
 
                 </form>
-                <span class="text-light  mt-1 mb-3">Search By "Name / Phone Number"</span>  
+                <span class="text-light  mt-1 mb-3">Search By "Teacher Name / Phone Number"</span>  
             </div>
 
             

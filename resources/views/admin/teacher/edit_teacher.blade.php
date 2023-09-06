@@ -17,6 +17,11 @@
                             <label for="exampleInputUsername1" class="form-label">Teacher Name</label>
                             <input type="text" class="form-control" name="teacher" id="exampleInputUsername1"
                                 autocomplete="off" placeholder="Teacher Name" value="{{ $teacher->teacher }}">
+
+                                @if ($errors->has('teacher'))
+                                    <span class="text-danger">{{ $errors->first('teacher') }}</span>
+                                    
+                                @endif
                         </div>
 
                         <div class="mb-3">

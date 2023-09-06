@@ -19,8 +19,26 @@
         <link rel="stylesheet" href="{{ asset('frontend/gpa_cal/index.css') }}">
         
     
-        <title>Dash board</title>
+        <title>Oragon</title>
+
+     <link rel="icon" href="{{ asset('upload/logo.png') }}">   
 </head>
+
+<style>
+    html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+    height: 60px; /* Set the fixed height of the footer here */
+  }
+</style>
 
 <body>
 

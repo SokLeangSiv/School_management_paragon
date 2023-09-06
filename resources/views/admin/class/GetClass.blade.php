@@ -82,7 +82,7 @@
                                     </a>
                                     <a href="{{ route('delete.class', $item->id) }}">
                                         <button type="button" class="btn btn-danger"><i
-                                                class="fa-solid fa-trash fs-5"></i></button>
+                                                class="fa-solid fa-trash fs-5 delete remove" ></i></button>
                                     </a>
 
                             </tr>
@@ -97,4 +97,6 @@
     </div>
 
     {{ $class->links() }}
+
+   
 @endsection

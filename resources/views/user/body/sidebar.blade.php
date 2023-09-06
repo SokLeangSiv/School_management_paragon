@@ -1,8 +1,8 @@
 <div class="sidebar bg-black " style="z-index: 5">
 
-    <div class="h1 d-inline-block text-warning-emphasis pt-4 ps-4 pb-0">Oro<div
-            class="span d-inline-block text-info">gon</div>
-    </div>
+   <a href="{{ route('get.dashboard') }}"> <div class="h1 d-inline-block text-warning-emphasis pt-4 ps-4 pb-0">Oro<div
+    class="span d-inline-block text-info">gon</div>
+</div></a>
 
     <div class="close_btn d-inline-block ">
         <i class="fa-solid fa-circle-xmark"></i>

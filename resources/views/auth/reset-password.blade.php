@@ -1,9 +1,11 @@
 <x-guest-layout>
     <x-auth-card>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
         <x-slot name="logo">
-            <a href="/">
+            {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </a> --}}
         </x-slot>
 
         <!-- Validation Errors -->
@@ -12,6 +14,8 @@
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
 
+            <a class="navbar-brand text-warning-emphasis fs-1 fw-bolder d-flex justify-content-center pb-3" href="#">Ora<span
+                class="text-info">Gon</span></a>
             <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
@@ -45,4 +49,6 @@
             </div>
         </form>
     </x-auth-card>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </x-guest-layout>

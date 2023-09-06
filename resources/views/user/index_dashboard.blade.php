@@ -68,7 +68,7 @@
 
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 ms-lg-6 d-flex d-flex bg-light shadow flex-column radius  "
-                style="height: 30rem;">
+                style="height: 20rem;">
                 <h6 class="p-1 pt-3 fw-bolder ">Today's Schedule</h6>
 
 
@@ -99,4 +99,13 @@
 
         </div>
     </div>
+
+    <div class="container-fluid bottom">
+        <footer>
+          <hr>
+          <span class="d-flex justify-content-center text-center mb-2">
+            All rights reserved. Copyright © 2023 Oaragon International University Phnom Penh - Cambodia
+          </span>          
+        </footer>
+      </div>
 @endsection

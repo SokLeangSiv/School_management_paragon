@@ -1,10 +1,13 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            {{-- <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            </a> --}}
         </x-slot>
+
+        <a class="navbar-brand text-warning-emphasis fs-1 fw-bolder d-flex justify-content-center pb-3" href="#">Ora<span
+            class="text-info">Gon</span></a>
 
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
@@ -19,6 +22,8 @@
         <div class="mt-4 flex items-center justify-between">
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
+
+                
 
                 <div>
                     <x-button>

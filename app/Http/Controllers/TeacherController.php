@@ -64,7 +64,12 @@ class TeacherController extends Controller
     }
 
     public function UpdateTeacher(Request $request,$id){
-        
+
+        $request->validate([
+
+            'teacher' => 'required'
+        ]);
+
         $teacher = Teacher::find($id);
         $teacher->teacher = Str::ucfirst($request->teacher);
         $teacher->gender = $request->gender;

@@ -27,7 +27,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth','role:user'])->group(function(){
+Route::middleware(['auth','role:user','verified'])->group(function(){
 
     Route::controller(UserController::class)->group(function(){
 

@@ -57,7 +57,9 @@ class UserController extends Controller
             ->select('exams.*', 'stu_classes.*', 'teachers.*')
             ->when($search, function ($query) use ($search) {
                 $query->where('stu_classes.class_name', 'like', '%' . $search . '%')
-                    ->orWhere('teachers.teacher', 'like', '%' . $search . '%');
+                    ->orWhere('teachers.teacher', 'like', '%' . $search . '%')
+                    ->orWhere('stu_classes.class_code', 'like', '%' . $search . '%');
+
             })
             ->paginate(3);
     
