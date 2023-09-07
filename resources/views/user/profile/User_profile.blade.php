@@ -3,9 +3,9 @@
 @section('user')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
-
+    {{-- start container --}}
     <div class="container ">
-
+        {{-- start row --}}
         <div class="row mt-5">
 
             {{-- start form to get the profile data --}}
@@ -34,7 +34,7 @@
                 <!-- Password field -->
                 <div class=" offset-4 col-4 mt-2">
                     <label for="" class="form-label">Password : </label>
-                    <input type="text" name="password" class="form-control border-5" placeholder="Password">
+                    <input type="password" name="password" class="form-control border-5"  value="{{ $profileData->password }}" placeholder="Password">
                 </div>
 
                 <!-- Phone Number field -->

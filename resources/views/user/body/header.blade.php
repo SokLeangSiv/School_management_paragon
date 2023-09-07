@@ -5,8 +5,11 @@ $data = App\Models\User::find($id);
 
 @endphp
 
+<!-- Start of navigation bar -->
 <nav class="navbar navbar-expand-sm navbar-light bg-light shadow">
+    <!-- Start of container fluid -->
     <div class="container-fluid">
+        <!-- Menu button -->
         <div class="menu_btn">
 
             <i class="fa-solid fa-bars"></i>
@@ -18,25 +21,39 @@ $data = App\Models\User::find($id);
         @include('user.body.sidebar')
         {{-- end sidebar --}}
 
+        <!-- Start of navbar brand -->
         <a class="navbar-brand text-warning-emphasis fs-2 fw-bolder" href="{{ route('get.dashboard') }}">Ora<span
                 class="text-info">Gon</span></a>
+        <!-- End of navbar brand -->
+
+        <!-- Button Collape -->        
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Start of navbar collapse -->
         <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <!-- Start of navbar nav -->
             <ul class="navbar-nav ms-auto me-5 mt-2 mt-lg-0">
+                <!-- Start of nav item -->
                 <li class="nav-item">
                     <a class="nav-link active me-lg-4 fw-bolder fs-5 text-info mt-lg-3 mt-md-5 mt-sm-3 mt-lg-3 name"
                         href="#" aria-current="page">{{ auth()->user()->name }}<span
                             class="visually-hidden">(current)</span></a>
                 </li>
+                <!-- End of nav item -->
+
+                <!-- Start of nav item -->
                 <li class="nav-item">
                     <img src="{{ !empty($data->photo) ? url('upload/img/user/'.$data->photo) : url('upload/no_image.jpg') }}"
                         class="img-fluid rounded-circle mt-lg-0 mt-md-4 me-lg-5 me-md-4 me-sm-4 me-4 img" alt=""
                         style="width: 70px; height: 70px;">
                 </li>
+                <!-- End of nav item -->
+
+                <!-- Start of nav item -->
                 <li class="nav-item ">
                     <a class="nav-link active mt-lg-3  mt-md-1 mt-sm-0  " href="#" aria-current="page"><a href=""
                             class="text-decoration-none  "><span class="d-lg-none d-md-none"><br></span><i
@@ -44,7 +61,9 @@ $data = App\Models\User::find($id);
                                 class="d-lg-none d-md-none ps-4 fw-bolder fs-3 d-sm-none text-secondary"> Notification</span></a>
                     </a>
                 </li>
+                <!-- End of nav item -->
 
+                <!-- Start of nav item -->
                 <li class="nav-item dropdown">
                     <a class="nav-link me-lg-5 ms-lg-5 ms-md-5    mt-sm-4  mt-lg-3 " href="#"
                         id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,8 +76,11 @@ $data = App\Models\User::find($id);
                         <a class="dropdown-item pt-lg-3  pb-lg-3 ps-lg-4" href="{{ route('user.logout') }}">Logout</a>
                     </div>
                 </li>
+                <!-- End of nav item -->
             </ul>
-
+            <!-- End of navbar nav -->
         </div>
+        <!-- End of navbar collapse -->
     </div>
+    <!-- End of container fluid -->
 </nav>

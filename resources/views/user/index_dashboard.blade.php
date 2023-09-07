@@ -7,23 +7,29 @@
         $class = App\Models\stu_class::where('status', 'Active')->get();
         
     @endphp
+    <!-- Start Container-fluid -->
     <div class="container-fluid">
-
+        <!-- row -->
         <div class="row">
+            <!-- col -->
             <div class="col-12 col-lg-11 col-xl-10 offset-lg-1    announment mt-5 bg-light shadow ">
+                <!-- annonument title -->
                 <h5 class="text-info d-block pt-2 fw-bolder">Announment</h5>
 
                 <div class="h6 text-secondary d-flex justify-content-center align-items-center mt-4">No Announcement
                 </div>
             </div>
+            <!-- end col -->
         </div>
-
+        <!-- End row -->
     </div>
+    <!-- End Container-fluid -->
 
+    <!-- Start Container-fluid -->
     <div class="container-fluid">
-
+        <!-- row -->
         <div class="row d-flex justify-content-center mt-lg-4 mt-sm-4 gap-3">
-
+            <!-- col -->
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex bg-light shadow gap-sm-4 gap-lg-0 gap-4  radius flex-column mb-5">
 
                 <h6 class="p-1 pt-3 fw-bolder">Course</h6>
@@ -70,7 +76,7 @@
 
 
             </div>
-
+            <!-- end col -->
 
             {{-- start schedule --}}
 
@@ -107,7 +113,9 @@
 
 
         </div>
+        <!-- End row -->
     </div>
+    <!-- End Container-fluid -->
 
     {{-- start footer --}}
 

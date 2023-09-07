@@ -145,54 +145,59 @@
     <!-- toastr -->
 
     <script>
-        $(document).on('click', '.remove', function(e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-            swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this data!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        $.ajax({
-                            type: "POST",
-                            url: "/delete/" + id,
-                            success: function(data) {
-                                location.reload();
-                            }
-                        });
-                    } else {
-                        swal("Your data is safe!");
-                    }
-                });
-        });
+        // JavaScript code for confirming and handling the removal of data
+$(document).on('click', '.remove', function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this data!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            // Send an AJAX request to delete the data
+            $.ajax({
+                type: "POST",
+                url: "/delete/" + id,
+                success: function(data) {
+                    // Reload the page after successful deletion
+                    location.reload();
+                }
+            });
+        } else {
+            swal("Your data is safe!");
+        }
+    });
+});
+
     </script>
 
 
     <script>
-        @if (Session::has('message'))
-            var type = "{{ Session::get('alert-type', 'info') }}"
-            switch (type) {
-                case 'info':
-                    toastr.info(" {{ Session::get('message') }} ");
-                    break;
+// JavaScript code for displaying toastr notifications based on alert-type
+@if (Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch (type) {
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
 
-                case 'success':
-                    toastr.success(" {{ Session::get('message') }} ");
-                    break;
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
 
-                case 'warning':
-                    toastr.warning(" {{ Session::get('message') }} ");
-                    break;
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
 
-                case 'error':
-                    toastr.error(" {{ Session::get('message') }} ");
-                    break;
-            }
-        @endif
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+
+   @endif 
     </script>
 
 

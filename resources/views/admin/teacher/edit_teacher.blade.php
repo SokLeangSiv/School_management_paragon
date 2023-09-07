@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h6 class="card-title">edit Class</h6>
+                    <h6 class="card-title">Edit Teacher</h6>
 
                     <form class="forms-sample" method="post" action="{{ route('update.teacher', $teacher->id) }}">
                         @csrf
