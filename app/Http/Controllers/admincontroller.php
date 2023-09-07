@@ -15,8 +15,8 @@ class admincontroller extends Controller
     public function admin(){
 
         $class= stu_class::latest()->limit(3)->get();
-        $teacher = Teacher::latest()->limit(3)->get();  
-        // $student = Student::latest()->limit(3)->get();
+
+        $teacher = Teacher::latest()->limit(3)->get();
         
         $student = DB::table('students')
                 ->join('stu_classes', 'students.class_id', '=', 'stu_classes.id')

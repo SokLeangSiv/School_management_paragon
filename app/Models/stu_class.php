@@ -11,13 +11,13 @@ class stu_class extends Model
 
     protected $guarded = [];
 
-    public function student(){
-        return $this->hasMany(Student::class , 'class_id' , 'id');
-    }
+    // public function student(){
+    //     return $this->hasMany(Student::class , 'class_id' , 'id');
+    // }
 
-    public function exam(){
-        return $this->hasMany(Exam::class , 'class_id' , 'id');
-    }
+    // public function exam(){
+    //     return $this->hasMany(Exam::class , 'class_id' , 'id');
+    // }
 
    
 }

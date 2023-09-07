@@ -11,13 +11,13 @@ class Exam extends Model
 
     protected $guarded = [];
 
-    public function class(){
-        return $this->belongsTo(stu_class::class,'class_id','id');
-    }
+    // public function class(){
+    //     return $this->belongsTo(stu_class::class,'class_id','id');
+    // }
 
-    public function teacher(){
-        return $this->belongsTo(stu_class::class,'teacher_id','id');
-    }
+    // public function teacher(){
+    //     return $this->belongsTo(stu_class::class,'teacher_id','id');
+    // }
 
   
 }

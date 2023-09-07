@@ -47,7 +47,8 @@
 
     <!-- navbar -->
     
-        @include('user.body.header')
+    @include('user.body.header')
+    
     <!-- end navbar -->
 
 

@@ -116,13 +116,20 @@ class UserController extends Controller
     }
 
     public function StoreAdminProfile(Request $request){
+        $request->validate([
+            'password' => 'nullable',
+        ]);
+
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->password)
+
+        ]);
 
         $id = Auth::user()->id;
         $admin = User::find($id);
 
         $admin->name = $request->name;
         $admin->email = $request->email;
-        $admin->password =Hash::make( $request->password);
         $admin->phone = $request->phone;
         $admin->address = $request->address;
         

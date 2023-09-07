@@ -17,7 +17,6 @@ $data = App\Models\User::find($id);
         {{-- sidebar --}}
         @include('user.body.sidebar')
         {{-- end sidebar --}}
-        
 
         <a class="navbar-brand text-warning-emphasis fs-2 fw-bolder" href="{{ route('get.dashboard') }}">Ora<span
                 class="text-info">Gon</span></a>

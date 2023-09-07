@@ -2,6 +2,8 @@
 
 @section('user')
     @php
+
+    // check if the status is active
         $class = App\Models\stu_class::where('status', 'Active')->get();
         
     @endphp
@@ -26,7 +28,8 @@
 
                 <h6 class="p-1 pt-3 fw-bolder">Course</h6>
 
-                <!--  first class -->
+                <!--  loop class to get the data  -->
+
                 @foreach ($class as $classes)
                     <div class="row ms-4 ms-sm-4 ms-lg-0">
 
@@ -49,9 +52,9 @@
                     </div>
                 @endforeach
 
-                <!-- End first class -->
+                <!-- End loop class to get the data -->
 
-                <!-- second class -->
+                <!-- second class  -->
 
                 <div class="row">
 
@@ -67,6 +70,10 @@
 
 
             </div>
+
+
+            {{-- start schedule --}}
+
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 ms-lg-6 d-flex d-flex bg-light shadow flex-column radius  "
                 style="height: 20rem;">
                 <h6 class="p-1 pt-3 fw-bolder ">Today's Schedule</h6>
@@ -95,10 +102,14 @@
 
             </div>
 
+            {{-- end schedule --}}
+
 
 
         </div>
     </div>
+
+    {{-- start footer --}}
 
     <div class="container-fluid bottom">
         <footer>
@@ -108,4 +119,6 @@
           </span>          
         </footer>
       </div>
+
+    {{-- end footer --}}
 @endsection
